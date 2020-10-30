@@ -85,10 +85,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT_gk6_grid( \
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  \
-  KC_CAPS, KC_PSCR, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, KC_HOME, KC_END,  KC_INS,  KC_MPLY, _______, _______, _______, _______, _______, _______, _______, \
-  _______, KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______, _______, _______, KC_PGUP, _______, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PGDN, _______  \
+  KC_CAPS, KC_PSCR, _______, _______, _______, _______, _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, _______, \
+  _______, KC_HOME, KC_END,  KC_INS,  KC_MPLY, _______, _______, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, _______, \
+  _______, KC_MPRV, KC_MNXT, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______, _______, _______, KC_PGUP, KC_BSLS, \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PGDN, KC_RALT  \
 ),
 
 };
