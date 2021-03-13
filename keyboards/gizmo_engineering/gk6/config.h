@@ -48,3 +48,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
 #define LOCKING_RESYNC_ENABLE
+
+// RGB Matrix
+#define DRIVER_ADDR_1 0b1110100
+#define DRIVER_ADDR_2 0b1110111
+
+#define DRIVER_COUNT 2
+#define DRIVER_1_LED_TOTAL 32
+#define DRIVER_2_LED_TOTAL 32
+#define DRIVER_LED_TOTAL (DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL)
+#define RGBLIGHT_EFFECT_BREATHE_MAX 128  // 0-255
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 128
