@@ -59,3 +59,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DRIVER_LED_TOTAL (DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL)
 #define RGBLIGHT_EFFECT_BREATHE_MAX 250  // 0-255
 #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 250
+
+// Use ~ key for the bootloader
+#define BOOTMAGIC_LITE_ROW 0
+#define BOOTMAGIC_LITE_COLUMN 0

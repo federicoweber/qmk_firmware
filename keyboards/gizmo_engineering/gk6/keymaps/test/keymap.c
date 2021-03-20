@@ -33,11 +33,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | CTRL |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Esc  | GUI  |  Alt |Lower |  Back|Space |Space |  Alt |Raise | Left | Down |Right |
+ * | CTRL | GUI  |  Alt |Lower |  Back|Space |Space |  Alt |Raise | Left | Down |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_gk6_5x12( \
@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______,  _______, _______, _______, _______, _______, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, _______, \
   _______, _______,  _______, _______, _______, _______, _______, KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, _______, \
-  _______, RGB_TOG,  RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD, _______, _______, _______, _______, KC_PIPE, KC_BSLS, \
+  _______, RGB_TOG,  RGB_HUI, RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, RGB_MOD, _______, _______, KC_PIPE, KC_BSLS, \
   DEBUG,   _______,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
 ),
 
@@ -188,7 +188,6 @@ led_config_t g_led_config = { {
     {3, 8, 13, 18, 23, 29, 34, 40, 46, 51, 56, 61},
     {4, 9, 14, 19, 24, 30, 35, 41, 47, 52, 57, 62},
     {5, 10, 15, 20, 25, 31, 36, 42, 48, 53, 58, 63},
-    {NO_LED, NO_LED, NO_LED, NO_LED, 26, 37, 43, NO_LED, NO_LED, NO_LED, NO_LED, NO_LED}
 }, {
     // LED Index to Physical Position
     {0, 0},  {20, 0},  {40, 0},  {61, 0},  {81, 0},  {101, 0},  {122, 0},  {142, 0},  {162, 0},  {183, 0},  {203, 0},  {224, 0},
@@ -204,5 +203,13 @@ led_config_t g_led_config = { {
     0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
     0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xF0, 0xFF, 0xFF,
     0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-    0xFF, 0xFF, 0xFF
+    0x01, 0x01, 0x01
 } };
+
+void keyboard_post_init_user(void) {
+  // Customise these values to desired behaviour
+  debug_enable=true;
+  //debug_matrix=true;
+  //debug_keyboard=true;
+  //debug_mouse=true;
+}
