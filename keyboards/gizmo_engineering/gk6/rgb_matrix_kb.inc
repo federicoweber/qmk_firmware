@@ -1,6 +1,7 @@
 #include "print.h"
 
-RGB_MATRIX_EFFECT(TEST_LEDS_MATRIX)
+RGB_MATRIX_EFFECT(TEST_LEDS_MATRIX_SCAN)
+RGB_MATRIX_EFFECT(TEST_LEDS_MATRIX_SOLID)
 
 #ifdef RGB_MATRIX_CUSTOM_EFFECT_IMPLS
 
@@ -48,9 +49,9 @@ static void advance_matrix(effect_params_t* params) {
     }
 }
 
-static bool TEST_LEDS_MATRIX(effect_params_t* params) {
+static bool TEST_LEDS_MATRIX_SCAN(effect_params_t* params) {
     if (!params->init) {
-        if (scale16by8(g_rgb_timer, qadd8(rgb_matrix_config.speed, 16)) % 20 == 0) {
+        if (scale16by8(g_rgb_timer, qadd8(rgb_matrix_config.speed, 16)) % 8 == 0) {
             advance_matrix(params);
         }
         return false;
@@ -58,6 +59,29 @@ static bool TEST_LEDS_MATRIX(effect_params_t* params) {
 
     RGB_MATRIX_USE_LIMITS(led_min, led_max);
     for (uint8_t i = led_min; i < led_max; i++) {
+        rgb_matrix_set_color(i, 0, 0, 0);
+    }
+
+    return led_max < DRIVER_LED_TOTAL;
+}
+
+static bool TEST_LEDS_MATRIX_SOLID(effect_params_t* params) {
+    if (!params->init) {
+        if (scale16by8(g_rgb_timer, qadd8(rgb_matrix_config.speed, 16)) % 20 == 0) {
+            for (uint8_t i = 0; i < DRIVER_LED_TOTAL; i++) {
+                set_led_color(i);
+            }
+            led_color ++;
+            if (led_color >= 3) {
+                led_color = 0;
+            }
+        }
+        return false;
+    }
+
+    RGB_MATRIX_USE_LIMITS(led_min, led_max);
+    for (uint8_t i = led_min; i < led_max; i++) {
+        led_color = 0;
         rgb_matrix_set_color(i, 0, 0, 0);
     }
 
