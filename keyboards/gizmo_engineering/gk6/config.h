@@ -74,6 +74,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DISABLE_RGB_MATRIX_BAND_SAT
 #define DISABLE_GB_MATRIX_BAND_PINWHEEL_SAT
 #define DISABLE_RGB_MATRIX_BAND_SPIRAL_SAT
+#define RGB_DISABLE_WHEN_USB_SUSPENDED true
 
 // Use ~ key for the bootloader
 #define BOOTMAGIC_LITE_ROW 0
